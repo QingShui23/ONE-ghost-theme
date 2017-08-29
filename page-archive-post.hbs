@@ -1,0 +1,83 @@
+{{!< default}}
+
+{{! This is a page template. A page outputs content just like any other post, and has all the same
+    attributes by default, but you can also customise it to behave differently if you prefer. }}
+
+{{! Everything inside the #post tags pulls data from the page }}
+{{#post}}
+<div class="post-bg" style="background-image: url({{#if image}}{{image}}{{else}}http://cdn.4zen.top/default.jpg{{/if}});"></div>
+<div class="site-wrapper " page-type="c-page-archive">
+<header class="main-header picbox post-head {{#if image}}" style="background-image: url({{image}}){{else}}http://cdn.4zen.top/default.jpg{{/if}}">
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">{{title}}</h1>
+            <h2 class="page-description">{{@blog.description}}</h2>
+        </div>
+
+    </div>
+</header>
+
+<main class="content" role="main">
+    <article class="{{post_class}}">
+
+
+        <section class="post-content">
+                    <span class="archive-move-on"></span>
+        <span class="archive-page-counter">好! 目前共计&nbsp;{{#get "posts"}}{{pagination.total}}{{/get}}&nbsp;篇日志。 继续努力。</span>
+        <div id="hidden-temp-container" style="">
+          <ul>
+            {{#get "posts" limit="all"}}
+                {{#foreach posts}}
+                    <li class="" itemscope="" itemtype="http://schema.org/Article">
+                      <a class="" href="{{url}}" itemprop="url">
+                          <em year="{{date format='YYYY'}}">
+                              {{date format='MM-DD'}}
+                          </em>
+                          <span itemprop="name">{{title}}</span>
+                      </a>
+                    </li>
+                {{/foreach}}
+            {{/get}}
+          </ul>
+        </div>
+        </section>
+
+        <footer class="post-footer">
+                {{! Everything inside the #author tags pulls data from the author }}
+        {{#author}}
+
+            {{#if image}}
+            <figure class="author-image">
+                <a class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}的头像</span></a>
+            </figure>
+            {{/if}}
+
+            <section class="author">
+                <h4><a href="{{url}}">{{name}}</a></h4>
+
+                {{#if bio}}
+                    <p>{{bio}}</p>
+                {{else}}
+                    <p>继续阅读此作者的<a href="{{url}}">更多文章</a>。</p>
+                {{/if}}
+                <div class="author-meta">
+                    {{#if location}}<span class="author-location icon-location">{{location}}</span>{{/if}}
+                    {{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
+                </div>
+            </section>
+                        <section class="share">
+                <h4>分享此博文</h4>
+                {{! 以下代码使用的是百度分享(http://share.baidu.com/)，如需自定义，请自行到百度分享上定制并将代码粘贴到这里。}}
+                <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+                {{! 百度分享代码结束}}
+            </section>
+        {{/author}}
+        </footer>
+    <div id="comment" class="comments"></div>
+    </article>
+</main>
+{{/post}}
+
+
+

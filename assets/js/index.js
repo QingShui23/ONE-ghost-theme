@@ -38,7 +38,7 @@
             forum: '4zen',
             api: 'http://api.fooleap.org/4zen',
             site: 'http://www.4zen.top',
-            mode: 2,
+            mode: 1,
             timeout: 3000,
             init: true
         }); 
@@ -46,10 +46,12 @@
         //初始化代码高亮
         hljs.initHighlightingOnLoad();
         //初始化相册插件
-        $
+
 
         //页面函数调用过滤
         var body = $(".site-wrapper").attr("page-type");
+        repImg(".post-toppic img","conetnt");
+        repImg(".post-bg","bg");
         switch(body){
             case "c-post":
                 addPBOX();
@@ -66,7 +68,6 @@
         }
         //回到顶部按钮自动隐藏
         $(window).scroll(function() {
-            console.log($(this).scrollTop()+"，"+$(".home-header").height());
             if ($(this).scrollTop() > $(".home-header").height()*0.8) {
                 $(".sidebar").fadeIn(100);
             } else {
@@ -160,7 +161,7 @@ function addPBOX(){
         var url = this.src;
         if (this.src.indexOf("cdn.4zen.top") != -1){
             var ptype = IsPC() == true ? "!800xa":"!400xa";
-            $(this).attr("src",url+ptype)
+            $(this).attr("src",url)
         }
         $(this).wrap("<a href=" + url + " title=" + this.alt + "></a>")
     });
@@ -173,3 +174,28 @@ function addPBOX(){
     });
 }
 
+function repImg(selector,type){
+	var imgStyle = IsPC() == true ? "!800xa":"!400xa";
+	switch(type){
+		case "conetnt":
+			$(selector).each(function(){
+				$(this).attr("src",this.src + imgStyle)
+			});
+			break;
+		case "bg":
+			$(selector).css("background-image","url("+$(selector).css("background-image").split("\"")[1]+imgStyle+")");
+			break;
+	}
+	
+	
+}
+
+function changeBg(){
+	$(".post-toppic img").hover(
+		function(){
+		 $(".post-bg").css("background-image","url("+this.src +")");
+		},
+		function(){
+		   //当鼠标离开的时候,程序处理
+		});
+}

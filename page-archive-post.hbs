@@ -26,14 +26,19 @@
         <span class="archive-page-counter">好! 目前共计&nbsp;{{#get "posts"}}{{pagination.total}}{{/get}}&nbsp;篇日志。 继续努力。</span>
         <div id="hidden-temp-container" style="">
           <ul>
-            {{#get "posts" limit="all"}}
+            {{#get "posts" limit="all" include="tags,author"}}
                 {{#foreach posts}}
                     <li class="" itemscope="" itemtype="http://schema.org/Article">
                       <a class="" href="{{url}}" itemprop="url">
                           <em year="{{date format='YYYY'}}">
-                              {{date format='MM-DD'}}
+                          	{{date format='MM-DD'}}
                           </em>
                           <span itemprop="name">{{title}}</span>
+						  {{#if tags}}
+						    {{#foreach tags}}
+						        <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a> 
+						    {{/foreach}}
+						  {{/if}}
                       </a>
                     </li>
                 {{/foreach}}

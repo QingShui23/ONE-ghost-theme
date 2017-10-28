@@ -1,7 +1,7 @@
 ###ONE
 这个主题是基于casper主题国内版修改而来的一款单栏主题。
 
-![](http://cdn.4zen.top/image/3/7f/3f5333c626a7ced2c34f570e526a6.png)
+![](http://cdn.4zen.top/image/a/ea/418ce1ffa29a0ba2f8090189aa53f.png)
 
 之前偶然刷微博的时候看到了新浪微博的一个文章页面，很喜欢这种大图带文字的形式。所以直接照搬了新浪微博的文章页面。（是不是简直一毛一样。哈哈！）
 
@@ -33,7 +33,7 @@ fooleap做的是国内桥接版的disqus评论，组件会自动检测访客是�
 3. [DEMO页面就是本站...](http://www.4zen.top)
 4. 导航的图标在[http://fontawesome.io/icons/](http://fontawesome.io/icons/)找到后复制除开`fa-`之后的内容如：`fa-address-book-o`只复制`address-book-o`，然后添加进`assets\js\index.js`文件31行的数组内，会根据你后台设置的导航菜单顺序自动添加进去。
 5. 哦，对了...这个不支持1.x以上的ghost...
-5. 待增加...
+6. 待增加...
 
 **2017年8月16日**
 
@@ -53,4 +53,11 @@ fooleap做的是国内桥接版的disqus评论，组件会自动检测访客是�
 6. 修改了一些CSS样式。
 7. 忘记还有其他什么更新了，肯定还有就是了....
 
-【[下载地址：ONE_0.2.0.rar](http://cdn.4zen.top/ONE.rar)】
+**2017年10月28日**
+
+1. 优化了一些页面css
+2. 优化了的js的一些函数
+3. 已经转hexo了，ghost的版本可能不再更新了。
+4. 谢谢。
+
+下载地址：[[点我下载最新版本](http://cdn.4zen.top/imgs/171028/iK7cGbFH1i.rar)]
